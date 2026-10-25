@@ -1,0 +1,57 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	
+
+<script>
+  function convertFromBHDtoGBP(){
+
+    //get the amount from the url
+			const urlParams = new URLSearchParams(window.location.search);
+      bhd_amount = urlParams.get('bhd_amount');
+      //console.log(bhd_amount);
+
+      //if bhd_amount not null
+      if(bhd_amount){
+        //convert the amount
+        gpb_amount = parseFloat(bhd_amount)* 2.11;
+
+        //display it
+        document.write("<h3 style='color:blue'> "+bhd_amount+" BHD equal to "+gpb_amount+" GPB</h3>");
+      }
+
+  }
+</script>
+  </head>
+  <body onload="convertFromBHDtoGBP()">
+
+    <div class="container">
+        <div class='row'>
+            <div class="col-6 offset-md-3" style='margin-top:100px'>
+
+                <h1>Currency Exchange | BHD to GBP</h1>
+
+                <form method="get">
+                    <div class="form-group">
+                        <label for="name">Currency in BHD</label>
+                        <input type="text" class="form-control" name="bhd_amount" placeholder="1">
+                    </div>
+                    
+                    <br/>
+                    <button type="submit"  class="btn btn-primary">Convert to GBP</button>
+                  </form>
+					<br/>
+					
+                      
+            </div>
+        </div>
+     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
